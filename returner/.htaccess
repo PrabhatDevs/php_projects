@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Set the base path for the root folder
+#RewriteBase /custom_structure/
+
+# If the requested resource is a directory or file, do nothing
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Rewrite all requests to the entry point (index.php)
+RewriteRule ^(.*)$ index.php/$1 [QSA,L]
